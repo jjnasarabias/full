@@ -6,7 +6,8 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
-    - apps
+    - name: apps
+      namespace: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-system
