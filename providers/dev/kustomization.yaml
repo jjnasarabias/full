@@ -1,5 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
-namespace: crossplane-system
+metadata:
+  name: providers
+  namespace: crossplane-system
 resources:
   - ../s3-aws.yaml
