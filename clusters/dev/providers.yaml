@@ -11,7 +11,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./providers/dev
+  path: ./crossplane/providers/dev
   prune: true
   wait: true
   timeout: 5m0s
