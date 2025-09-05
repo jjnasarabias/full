@@ -5,7 +5,8 @@ metadata:
   namespace: crossplane-system
 spec:
   credentials:
-    source: Secret
+    source: Custom
+#    source: Secret
     secretRef:
       namespace: crossplane-system
       name: aws-creds
