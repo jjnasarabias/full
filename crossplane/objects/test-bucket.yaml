@@ -4,7 +4,6 @@ metadata:
   name: test-bucket
 spec:
   forProvider:
-    acl: public-read-write
-    locationConstraint: us-east-1
+    region: us-east-1
   providerConfigRef:
     name: localstack-config
