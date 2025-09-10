@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: radius
+  namespace: radius-system
+spec:
+  releaseName: radius
+  dependsOn:
+    - name: radius
+      kind: OCIRepository
+      namespace: radius-system
+  chart:
+    spec:
+      chart: radius
+      version: 0.50.0
+      sourceRef:
+        kind: HelmRepository
+        name: radius
+        namespace: radius-system
+  interval: 50m
+  createNamespace: true
+  install:
+    remediation:
+      retries: 3
+  valuesFrom:
+    - kind: ConfigMap
+      name: values
