@@ -18,3 +18,8 @@ variable "bootstrapDir" {
   type = string
   description = "The directory to boostrap flux"
 }
+
+variable "fluxVersion" {
+  description = "The fluxCD version"
+  type = string
+}
