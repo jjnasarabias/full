@@ -15,6 +15,6 @@ module "crossplane" {
 module "flux" {
   source = "../../modules/flux"
   ssh_key = "~/.ssh/id_rsa"
-  bootstrapDir = "environments/dev"
+  bootstrapDir = "flux/clusters/dev"
 }
 
