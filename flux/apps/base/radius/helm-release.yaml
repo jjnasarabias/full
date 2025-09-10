@@ -7,11 +7,9 @@ spec:
   releaseName: radius
   dependsOn:
     - name: radius
-      kind: OCIRepository
       namespace: radius-system
   chart:
     spec:
-      createNamespace: true
       chart: radius
       version: 0.50.0
       sourceRef:
