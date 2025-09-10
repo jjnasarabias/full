@@ -22,4 +22,5 @@ variable "bootstrapDir" {
 variable "fluxVersion" {
   description = "The fluxCD version"
   type = string
+  default = "2.6.4"
 }
