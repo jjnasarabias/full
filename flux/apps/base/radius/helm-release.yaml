@@ -11,6 +11,7 @@ spec:
       namespace: radius-system
   chart:
     spec:
+      createNamespace: true
       chart: radius
       version: 0.50.0
       sourceRef:
@@ -18,7 +19,6 @@ spec:
         name: radius
         namespace: radius-system
   interval: 50m
-  createNamespace: true
   install:
     remediation:
       retries: 3
