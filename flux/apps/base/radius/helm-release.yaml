@@ -5,14 +5,10 @@ metadata:
   namespace: radius-system
 spec:
   releaseName: radius
-  chart:
-    spec:
-      chart: radius
-      version: 0.50.0
-      sourceRef:
-        kind: OCIRepository
-        name: radius
-        namespace: radius-system
+  chartRef:
+    kind: OCIRepository
+    name: radius
+    namespace: radius-system
   interval: 50m
   install:
     remediation:
