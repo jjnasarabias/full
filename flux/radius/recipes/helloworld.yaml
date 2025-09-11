@@ -1,0 +1,12 @@
+apiVersion: radapp.io/v1alpha3
+kind: Recipe
+metadata:
+  name: hello-world
+  namespace: radius-system
+spec:
+  environment: default
+  resourceType: MyCompany.Resources/helloworld
+  template:
+    kind: terraform
+    path: user/recipes/helloworld
+    version: "1.0.0"

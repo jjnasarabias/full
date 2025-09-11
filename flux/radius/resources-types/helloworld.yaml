@@ -1,0 +1,7 @@
+apiVersion: radapp.io/v1alpha3
+kind: ResourceType
+metadata:
+  name: MyCompany.Resources/helloworld
+  namespace: radius-system
+spec:
+  file: helloworld.yaml
