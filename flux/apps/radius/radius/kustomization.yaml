@@ -3,4 +3,6 @@ kind: Kustomization
 namespace: radius-system
 resources:
   - ../../base/radius
-  - ../../../radiusRecipes/radius
+  - ../../../radius/recipes/radius
+  - ../../../radius/recipes-repos/radius
+  - ../../../radius/resources-types/radius
