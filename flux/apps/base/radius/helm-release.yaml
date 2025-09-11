@@ -10,7 +10,7 @@ spec:
       chart: radius
       version: 0.50.0
       sourceRef:
-        kind: HelmRepository
+        kind: OciRepository
         name: radius
         namespace: radius-system
   interval: 50m
