@@ -5,9 +5,6 @@ metadata:
   namespace: radius-system
 spec:
   releaseName: radius
-  dependsOn:
-    - name: radius
-      namespace: radius-system
   chart:
     spec:
       chart: radius
