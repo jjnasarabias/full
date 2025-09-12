@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: vela
+  namespace: vela-system
+spec:
+  interval: 5m
+  url: https://kubevela.github.io/charts
