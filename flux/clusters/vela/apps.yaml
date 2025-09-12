@@ -8,7 +8,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./flux/apps/vela/apps
+  path: ./flux/apps/vela
   prune: true
   wait: true
   timeout: 5m0s
