@@ -5,7 +5,7 @@ resources:
   - ../../base/vela
 
 configMapGenerator:
-  - name: vela-values
+  - name: values
     behavior: merge
     files:
       - values.yaml
