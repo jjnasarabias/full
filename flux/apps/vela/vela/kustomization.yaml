@@ -8,4 +8,5 @@ configMapGenerator:
   - name: values
     behavior: merge
     files:
+      - ../../base/default-values.yaml
       - values.yaml

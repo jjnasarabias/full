@@ -1,2 +1,3 @@
 multicluster:
   enabled: false
+logDebug: false
