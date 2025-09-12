@@ -4,11 +4,3 @@ namespace: helloworld
 resources:
   - namespace.yaml
   - application.yaml
-
-configMapGenerator:
-  - name: values
-    files:
-      - values.yaml=default-values.yaml
-
-generatorOptions:
-  disableNameSuffixHash: true
