@@ -1,0 +1,21 @@
+controller:
+  ingressClassResource:
+    enabled: true
+    default: true
+  hostPort:
+    enabled: true
+    ports:
+      http: 80
+      https: 443
+  kind: DaemonSet
+  metrics:
+    enabled: false
+  service:
+    type: NodePort
+  config:
+    annotations-risk-level: Critical
+    allow-snippet-annotations: "true"
+    enable-real-ip: "true"
+    proxy-body-size: 90m
+    ssl-ciphers: ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-SHA256:AES:!RSA:!SRP:!MD5:!EXP:!LOW:!aNULL
+    use-forwarded-headers: "true"
