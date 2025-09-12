@@ -1,1 +1,10 @@
-logDebug: true
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: values
+  namespace: vela-system
+data:
+  values.yaml: |
+    multicluster:
+      enabled: false
+    logDebug: true

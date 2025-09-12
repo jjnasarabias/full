@@ -4,9 +4,5 @@ namespace: vela-system
 resources:
   - ../../base/vela
 
-configMapGenerator:
-  - name: values
-    behavior: merge
-    files:
-      - ../../base/default-values.yaml
-      - values.yaml
+patchesStrategicMerge:
+  - values-patch.yaml
