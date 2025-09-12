@@ -4,5 +4,9 @@ namespace: vela-system
 resources:
   - ../../base/vela
 
-patchesStrategicMerge:
-  - values-patch.yaml
+patches:
+  - path: values-patch.yaml
+    target:
+      name: values
+      kind: ConfigMap
+      namespace: vela-system
