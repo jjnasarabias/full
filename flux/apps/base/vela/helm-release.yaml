@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       version: "1.10.3"
-      chart: vela
+      chart: vela-core
       sourceRef:
         kind: HelmRepository
         name: vela
