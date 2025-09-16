@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - repository.yaml
+  - release.yaml
+  - repo_in_fluxsystem.yaml
+
+configMapGenerator:
+  - name: values
+    files:
+      - values.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+transformers:
+  - |-
+    apiVersion: builtin
+    kind: NamespaceTransformer
+    metadata:
+      name: notImportantHere
+      namespace: dev
+    unsetOnly: true

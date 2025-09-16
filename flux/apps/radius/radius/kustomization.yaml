@@ -4,5 +4,3 @@ namespace: radius-system
 resources:
   - ../../base/radius
   - ../../../radius/recipes/radius
-  - ../../../radius/recipes-repos/radius
-  - ../../../radius/resources-types/radius
