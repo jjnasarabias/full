@@ -10,7 +10,7 @@ spec:
       chart: podinfo
       sourceRef:
         kind: HelmRepository
-        name: podinfo
+        name: podinfo-override
   interval: 50m
   install:
     remediation:
