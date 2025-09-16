@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: podinfo-in-flux
+  name: podinfo-in-flux-override
   namespace: flux-system
 spec:
   interval: 5m
