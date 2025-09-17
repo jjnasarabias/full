@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       version: "3.20.1"
-      chart: gatekeeper/gatekeeper
+      chart: gatekeeper
       sourceRef:
         kind: HelmRepository
         name: gatekeeper
