@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: datadog
+  namespace: datadog-system
+spec:
+  releaseName: datadog
+  chart:
+    spec:
+      version: "0.17.14"
+      chart: synthetics-private-location
+      sourceRef:
+        kind: HelmRepository
+        name: datadog
+  interval: 50m
+  install:
+    remediation:
+      retries: 1
