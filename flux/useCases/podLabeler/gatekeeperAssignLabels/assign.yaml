@@ -8,7 +8,8 @@ spec:
       versions: ["v1"]
       kinds: ["Deployment", "StatefulSet", "DaemonSet"]
   match:
-    scope: Namespaced
+    scope: Cluster
+#    excludedNamespaces: "*-system"
     kinds:
       - apiGroups: ["apps"]
         kinds: ["Deployment", "StatefulSet", "DaemonSet"]
@@ -17,3 +18,4 @@ spec:
     assign:
       fromMetadata:
         field: "metadata.labels.xpto.test.com/test"
+        obj: namespace

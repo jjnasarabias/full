@@ -15,4 +15,4 @@ patches:
         value: spec.template.metadata.labels.xpto.test.com.test2
       - op: replace
         path: /spec/parameters/assign/fromMetadata/field
-        value: spec.template.metadata.labels.xpto.test.com.test2
+        value: metadata.labels.xpto.test.com.test2
