@@ -12,7 +12,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/location
-        value: spec.template.metadata.labels.xpto.test.com/test2
+        value: spec.template.metadata.labels.xpto.test.com.test2
       - op: replace
         path: /spec/parameters/assign/fromMetadata/field
-        value: spec.template.metadata.labels.xpto.test.com/test2
+        value: spec.template.metadata.labels.xpto.test.com.test2
