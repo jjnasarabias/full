@@ -1,0 +1,24 @@
+{{- $domain := .Values.domain -}}
+{{- if .Values.labels.namespaces -}}
+{{- range .Values.labels.namespaces }}
+apiVersion: mutations.gatekeeper.sh/v1
+kind: Assign
+metadata:
+  name: {{ .label }}-namespace-to-pod-template
+spec:
+  applyTo:
+    - groups: ["apps"]
+      versions: ["v1"]
+      kinds: ["Deployment", "StatefulSet", "DaemonSet"]
+  match:
+    scope: Namespaced
+    namespaceSelector:
+      matchLabels:
+        {{ printf "%s/%s: %s" $domain .label .value }}
+  location: {{ printf "spec.template.metadata.labels.\"%s/%s\"" $domain .label }}
+  parameters:
+    assign:
+      value: {{ .value | quote }}
+---
+{{- end -}}
+{{- end }}

@@ -1,0 +1,13 @@
+domain: xpto.test.com
+
+labels:
+  workloads:
+    - label: test
+      value: xpto
+    - label: other-test
+      value: other-xtpo
+  namespaces:
+    - label: namespace-test
+      value: namespace-xpto
+    - label: namespace-other-test
+      value: namespace-other-xtpo

@@ -1,0 +1,5 @@
+domain: xxxx.test.com
+
+labels:
+  workloads: []
+  namespaces: []
