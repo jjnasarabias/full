@@ -1,4 +1,4 @@
-resource "kubernetes_manifest" "gatekeeper_workloads_assign" {
+resource "kubernetes_manifest" "gatekeeper_namespaces_assign" {
   for_each = local.namespaceLabels
 
   manifest = {
@@ -6,7 +6,7 @@ resource "kubernetes_manifest" "gatekeeper_workloads_assign" {
     kind       = "Assign"
 
     metadata = {
-      name      = "workload-to-pod-template-${each.value.label}"
+      name      = "namespace-to-pod-template-${each.value.label}"
       namespace = "gatekeeper-system"
     }
 
