@@ -16,4 +16,4 @@ spec:
       interval: 4h0m0s
   valuesFrom:
     - kind: ConfigMap
-      name: values
+      name: values-for-gatekeeper-assigners
