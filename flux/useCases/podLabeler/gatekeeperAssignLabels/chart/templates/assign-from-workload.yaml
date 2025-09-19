@@ -1,0 +1,24 @@
+{{- $domain := .Values.domain -}}
+{{- if .Values.labels.workloads -}}
+{{- range .Values.labels.workloads }}
+apiVersion: mutations.gatekeeper.sh/v1
+kind: Assign
+metadata:
+  name: {{ .label }}-workload-to-pod-template
+spec:
+  applyTo:
+    - groups: ["apps"]
+      versions: ["v1"]
+      kinds: ["Deployment", "StatefulSet", "DaemonSet"]
+  match:
+    scope: Namespaced
+    labelSelector:
+      matchLabels:
+        {{ printf "%s/%s: %s" $domain .label .value }}
+  location: {{ printf "spec.template.metadata.labels.\"%s/%s\"" $domain .label }}
+  parameters:
+    assign:
+      value: {{ .value | quote }}
+---
+{{- end -}}
+{{- end }}
