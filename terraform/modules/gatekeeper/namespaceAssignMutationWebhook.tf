@@ -1,5 +1,5 @@
-resource "kubernetes_manifest" "gatekeeper_namespaces_assign" {
-  for_each = local.namespaceLabels
+resource "kubernetes_manifest" "gatekeeper_namespace_assign" {
+  for_each = local.namespaceLabelsMap
 
   manifest = {
     apiVersion = "mutations.gatekeeper.sh/v1"
@@ -7,7 +7,6 @@ resource "kubernetes_manifest" "gatekeeper_namespaces_assign" {
 
     metadata = {
       name      = "namespace-to-pod-template-${each.value.label}"
-      namespace = "gatekeeper-system"
     }
 
     spec = {
@@ -23,12 +22,12 @@ resource "kubernetes_manifest" "gatekeeper_namespaces_assign" {
         scope = "Namespaced"
         namespaceSelector = {
           matchLabels = {
-            "${local.labelsDomain}/${each.value.label}}" = each.value.value
+            "${local.labelsDomain}/${each.value.label}" = each.value.value
           }
         }
       }
 
-      location = "spec.template.metadata.labels.\"${local.labelsDomain}/${each.value.label}}\""
+      location = "spec.template.metadata.labels.\"${local.labelsDomain}/${each.value.label}\""
 
       parameters = {
         assign = {

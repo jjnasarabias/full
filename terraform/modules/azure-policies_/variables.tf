@@ -1,3 +1,16 @@
+variable "excludedNamespaces" {
+  description = "Namespaces to be excluded for policy schedule"
+  type = set(string)
+  default = [
+    "kube-system",
+    "kube-public",
+    "kube-node-lease",
+    "gatekeeper-system",
+    "flux-system"
+  ]
+}
+
+
 variable "workloadLabels" {
   description = "Labels WITHOUT domain to be copied from workloads to pod template spec"
   type = set(object({

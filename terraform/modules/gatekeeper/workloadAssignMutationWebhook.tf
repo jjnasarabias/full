@@ -1,5 +1,5 @@
 resource "kubernetes_manifest" "gatekeeper_workloads_assign" {
-  for_each = local.workloadsLabels
+  for_each = local.workloadsLabelsMap
 
   manifest = {
     apiVersion = "mutations.gatekeeper.sh/v1"
@@ -7,7 +7,6 @@ resource "kubernetes_manifest" "gatekeeper_workloads_assign" {
 
     metadata = {
       name      = "workload-to-pod-template-${each.value.label}"
-      namespace = "gatekeeper-system"
     }
 
     spec = {
@@ -23,12 +22,12 @@ resource "kubernetes_manifest" "gatekeeper_workloads_assign" {
         scope = "Namespaced"
         labelSelector = {
           matchLabels = {
-            "${local.labelsDomain}/${each.value.label}}" = each.value.value
+            "${local.labelsDomain}/${each.value.label}" = each.value.value
           }
         }
       }
 
-      location = "spec.template.metadata.labels.\"${local.labelsDomain}/${each.value.label}}\""
+      location = "spec.template.metadata.labels.\"${local.labelsDomain}/${each.value.label}\""
 
       parameters = {
         assign = {

@@ -15,5 +15,4 @@ resource "helm_release" "crossplane" {
   values = [
     yamlencode(var.crossplane.values)
   ]
-
 }
