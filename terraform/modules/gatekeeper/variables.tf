@@ -16,6 +16,15 @@ variable "namespaceLabels" {
   default = []
 }
 
+variable "excludedNamespaces" {
+  description = "Namespaces excluded"
+  type = set(string)
+  default = [
+    "kube-system",
+    "flux-system"
+  ]
+}
+
 variable "labelsDomain" {
   description = "Label domain"
   type = string

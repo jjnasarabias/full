@@ -20,6 +20,7 @@ resource "kubernetes_manifest" "gatekeeper_namespace_assign" {
 
       match = {
         scope = "Namespaced"
+        excludedNamespaces = local.excludedNamespaces
         namespaceSelector = {
           matchLabels = {
             "${local.labelsDomain}/${each.value.label}" = each.value.value
