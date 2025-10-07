@@ -12,8 +12,7 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-staging-account-key
       # Enable the HTTP-01 challenge provider
-      solvers:
-        - http01:
-            ingress:
-              class: nginx
-    
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
