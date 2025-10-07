@@ -7,7 +7,7 @@ spec:
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
-  commonName: example.com
+  commonName: thatdomain.com
   dnsNames:
-    - example.com
+    - thatdomain.com
 
