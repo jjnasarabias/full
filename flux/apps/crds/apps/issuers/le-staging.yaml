@@ -7,7 +7,7 @@ spec:
     # The ACME server URL for Let's Encrypt's staging environment
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     # Your email address used for ACME registration
-    email: your-email@example.com
+    email: your-email@thatdomain.com
     # Name of a secret used to store the ACME account
     privateKeySecretRef:
       name: letsencrypt-staging-account-key
