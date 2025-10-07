@@ -9,7 +9,7 @@ spec:
   interval: 4h0m0s
   chart:
     spec:
-      chart: /flux/apps/crds/components/cert-manager/chart
+      chart: ./flux/apps/crds/components/cert-manager/chart
       sourceRef:
         kind: GitRepository
         name: flux-system
