@@ -7,9 +7,15 @@ terraform {
   }
 }
 
+
+module "k3d" {
+  source = "../../modules/k3d"
+  clusterName = "crds"
+}
+
+
 module "flux" {
   source = "../../modules/flux"
-  ssh_key = "/home/emanuel/.ssh/id_rsa"
-  kubeconfig = "~/.kube/conf.d/crds"
-  bootstrapDir = "flux/clusters/crds"
+  kubeconfig = module.k3d.kubeconfig_path
+  bootstrapDir = "flux/clusters/${module.k3d.cluster_name}"
 }

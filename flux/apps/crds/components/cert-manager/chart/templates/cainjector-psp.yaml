@@ -1,4 +1,4 @@
-{{- if .Values.cainjector.enabled }}
+{{- if .Values.cainjector.enabled -}}
 {{- if .Values.global.podSecurityPolicy.enabled }}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
@@ -8,8 +8,9 @@ metadata:
     app: {{ include "cainjector.name" . }}
     app.kubernetes.io/name: {{ include "cainjector.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
     app.kubernetes.io/component: "cainjector"
-    {{- include "labels" . | nindent 4 }}
+    helm.sh/chart: {{ include "cainjector.chart" . }}
   annotations:
     seccomp.security.alpha.kubernetes.io/allowedProfileNames: 'docker/default'
     seccomp.security.alpha.kubernetes.io/defaultProfileName:  'docker/default'
@@ -47,5 +48,5 @@ spec:
     ranges:
     - min: 1000
       max: 1000
-{{- end }}
-{{- end }}
+{{- end -}}
+{{- end -}}

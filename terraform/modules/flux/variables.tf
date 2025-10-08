@@ -12,6 +12,7 @@ variable "flux_repo" {
 
 variable "ssh_key" {
   type = string
+  default = "/home/emanuel/.ssh/id_rsa"
 }
 
 variable "bootstrapDir" {
