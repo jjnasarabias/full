@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: test-cert-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: my-issuer
     kind: ClusterIssuer
   commonName: thatdomain.com
   dnsNames:
