@@ -19,3 +19,13 @@ rm ~/.kube/conf.d/${self.triggers.cluster_name}
 EOT
   }
 }
+
+resource "terraform_data" "cluster_validation" {
+  provisioner "local-exec" {
+    command = <<-EOT
+      kubectl --kubeconfig=${local.kubeconfig} wait --for=condition=Ready nodes --all --timeout=120s
+    EOT
+  }
+
+  depends_on = [null_resource.k3d_cluster]
+}
