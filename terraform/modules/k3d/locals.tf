@@ -2,5 +2,5 @@ locals {
   clusterName = var.clusterName
   servers = var.servers
   agents = var.agents
-  kubeconfig = "~/.kube/conf.d/${var.clusterName}"
+  kubeconfig = "$HOME/.kube/conf.d/${var.clusterName}"
 }

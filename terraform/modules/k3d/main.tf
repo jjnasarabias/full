@@ -11,7 +11,7 @@ k3d kubeconfig get ${var.clusterName} > ~/.kube/conf.d/${var.clusterName}
 EOT
   }
 
-  provisioner "local-exec" {
+provisioner "local-exec" {
     when    = destroy
     command = <<-EOT
 k3d cluster delete ${self.triggers.cluster_name}
@@ -20,6 +20,20 @@ EOT
   }
 }
 
+
+resource "null_resource" "wait_for_file" {
+  provisioner "local-exec" {
+    command = <<EOT
+while [ ! -f "${local.kubeconfig}" ]; do
+  echo "Waiting for ${local.kubeconfig} file to exist..."
+  sleep 3
+done
+echo "File found!"
+EOT
+  }
+}
+
+
 resource "terraform_data" "cluster_validation" {
   provisioner "local-exec" {
     command = <<-EOT
@@ -27,5 +41,5 @@ resource "terraform_data" "cluster_validation" {
     EOT
   }
 
-  depends_on = [null_resource.k3d_cluster]
+  depends_on = [null_resource.wait_for_file]
 }
